@@ -159,12 +159,12 @@ SPECTACULAR_SETTINGS = {
 
 
 # JWT Configuration
-ACCESS_TOKEN_LIFETIME = config("ACCESS_TOKEN_LIFETIME", default=timedelta(minutes=5), cast=timedelta)
-REFRESH_TOKEN_LIFETIME = config("REFRESH_TOKEN_LIFETIME", default=timedelta(days=1), cast=timedelta)
-
+ACCESS_TOKEN_LIFETIME = config("ACCESS_TOKEN_LIFETIME", default=60, cast=int)
+REFRESH_TOKEN_LIFETIME = config("REFRESH_TOKEN_LIFETIME", default=1440, cast=int)
+    
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=ACCESS_TOKEN_LIFETIME),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=REFRESH_TOKEN_LIFETIME),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
     "UPDATE_LAST_LOGIN": False,

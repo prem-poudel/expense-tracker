@@ -54,3 +54,11 @@ The [settings.py](src/settings.py) file was updated to make the project ready fo
 `apps` folder was created inside the `src` folder to hold the Django applications. Two applications were created:
 - `auth`: Handles user authentication and authorization.
 - `expenses`: Manages expense records.
+
+### Phase 3: User Authentication
+The `auth` application was developed to handle user registration, login, logout, and profile management. Django's built-in User model was used for user management. The following features were implemented:
+- **User Registration**: Allows users to create an account with a username, email, and password.
+- **User Login**: Allows users to log in and receive JWT tokens for authentication.
+- **User Logout**: Allows users to log out and blacklist their refresh tokens.
+- **User Profile**: Allows users to view and update their profile information.
+- **JWT Authentication**: Used `djangorestframework_simplejwt` for handling JWT tokens, including access and refresh tokens.

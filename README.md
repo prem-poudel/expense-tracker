@@ -62,3 +62,11 @@ The `auth` application was developed to handle user registration, login, logout,
 - **User Logout**: Allows users to log out and blacklist their refresh tokens.
 - **User Profile**: Allows users to view and update their profile information.
 - **JWT Authentication**: Used `djangorestframework_simplejwt` for handling JWT tokens, including access and refresh tokens.
+
+### Phase 4: Expense Management
+The `expenses` application was developed to manage expense records. The following features were implemented:
+- **Expense Model**: Created a model to represent expense records, including fields for amount, description, date, and category.
+- **Expense List and Create Views**: Implemented API views to list all expenses and retrieve details of a specific expense.
+- **Expense Retrieve, Update, and Delete Views**: Implemented functionality to retrieve, update, and delete expense records.
+- **Protected Views**: Used JWT authentication to protect expense-related views, ensuring that only authenticated users can access them.
+- **Data Privacy**: Implemented measures to ensure that users can only access their own expense records, protecting sensitive information.

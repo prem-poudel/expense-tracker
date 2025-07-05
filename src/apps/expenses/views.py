@@ -7,7 +7,7 @@ from .permissions import IsExpenseOwnerOrAdmin
 
 class ExpenseListCreateView(generics.ListCreateAPIView):
     serializer_class = ExpenseSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, IsExpenseOwnerOrAdmin]
 
     def get_queryset(self) :
         """
@@ -23,11 +23,13 @@ class ExpenseListCreateView(generics.ListCreateAPIView):
         serializer.save(user=self.request.user)
 
     def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
         return Response({
             "message": "Expense created successfully.",
-            "data": ExpenseSerializer(data=request.data).data
+            "data": serializer.data
         }, status=status.HTTP_201_CREATED)
-    
 
 class ExpenseDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ExpenseSerializer

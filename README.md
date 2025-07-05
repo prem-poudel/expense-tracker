@@ -151,9 +151,6 @@ The following are sample responses from the API endpoints:
 
 ### Owner Specific Expense Retrieval-List
 ```json
-	
-Response body
-Download
 {
   "count": 15,
   "next": "http://127.0.0.1:8000/api/v1/expenses/?page=2",

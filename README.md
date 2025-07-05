@@ -149,11 +149,14 @@ The following are sample responses from the API endpoints:
 }
 ```
 
-### Owner Specific Expense Retrieval
+### Owner Specific Expense Retrieval-List
 ```json
+	
+Response body
+Download
 {
-  "count": 2,
-  "next": null,
+  "count": 15,
+  "next": "http://127.0.0.1:8000/api/v1/expenses/?page=2",
   "previous": null,
   "results": [
     {
@@ -168,22 +171,25 @@ The following are sample responses from the API endpoints:
       "created_at": "2025-07-05T02:28:30.333864Z",
       "updated_at": "2025-07-05T02:28:30.333864Z",
       "user": 4
-    },
-    {
-      "id": 8,
-      "total": 505,
-      "title": "Course Reimbursement",
-      "description": "Refund for completed online course",
-      "amount": "500.00",
-      "transaction_type": "CR",
-      "tax": "5.00",
-      "tax_type": "FL",
-      "created_at": "2025-07-05T02:28:50.242024Z",
-      "updated_at": "2025-07-05T02:28:50.242024Z",
-      "user": 4
     }
   ]
-}   
+}
+```
+### Single Expense Retrieval
+```json
+ {
+  "id": 8,
+  "total": 505,
+  "title": "Course Reimbursement",
+  "description": "Refund for completed online course",
+  "amount": "500.00",
+  "transaction_type": "CR",
+  "tax": "5.00",
+  "tax_type": "FL",
+  "created_at": "2025-07-05T02:28:50.242024Z",
+  "updated_at": "2025-07-05T02:28:50.242024Z",
+  "user": 4
+}
 ```
 
 ## Admin Interface
